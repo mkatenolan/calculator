@@ -14,6 +14,22 @@ body {
   background-color: #D5BBB1;
 }
 
+.calculator {
+
+  font-size: 3rem;
+}
+
+button {
+  font-size: 3rem;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0.5vw 0.5vw;
+  padding: 1vw;
+}
+
 #display {
   background-color: #393D3F;
 }
@@ -24,4 +40,7 @@ body {
 
 #equals {
   background-color: #E76D83;
+  grid-row-start: 2;
+  grid-column-start: 4;
+  grid-row-end: 6;
 }
