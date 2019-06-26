@@ -6,12 +6,18 @@ keys.addEventListener('click', e=> {
   if (e.target.matches('button')) {
 
 const key = e.target;
-const action = e.dataset.action;
+const action = key.dataset.action;
 const keyType = key.textContent;
 const displayedNum = display.textContent;
 
-
-
-
+if (!action) {
+  if (displayedNum === "0") {
+    display.textContent = key.textContent;
+  } else {
+    display.textContent = displayedNum + keyType;
   }
+}
+
+
+}
 })
