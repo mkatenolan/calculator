@@ -53,6 +53,11 @@ button:hover {
   background-color: #D3D3D3;
 }
 
+button:focus {
+  background-color:#D3D3D3;
+  outline:none;
+}
+
 #display {
   margin-top: 1em;
   position:relative;
@@ -91,10 +96,10 @@ button:hover {
   grid-row-end: 6;
 }
 
-#equals:hover {
+#equals:hover, #clear:hover {
   background-color: #CE4257;
 }
 
-#clear:hover {
+#equals:focus, #clear:focus {
   background-color: #CE4257;
 }
