@@ -31,7 +31,11 @@ if (!action) {
 // if decimal is pressed
 
 if (action === 'decimal') {
+  if(!displayedNum.includes('.')) {
   display.textContent = displayedNum + '.';
+} else if (previousKeyType === 'operator') {
+  display.textContent = '0.'
+}
   calculator.dataset.previousKeyType = 'decimal';
 }
 
@@ -72,9 +76,13 @@ if (action === 'calculate') {
   calculator.dataset.previousKeyType = 'calculate';
 }
 
-//if the clear key is pressed 
+//if the clear key is pressed
 
 if (action === 'clear') {
+  let clear = document.querySelector('#clear');
+  display.textContent = '';
+  clear.textContent = 'CE';
+
   calculator.dataset.previousKeyType = 'clear';
 }
 
