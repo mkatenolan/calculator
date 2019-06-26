@@ -25,6 +25,32 @@ if (action === 'decimal') {
 
 if (action === 'add' || action === 'subtract' || action === 'multiply' || action === 'divide') {
   calculator.dataset.previousKeyType = 'operator';
+  calculator.dataset.firstValue = displayedNum;
+  calculator.dataset.operator = action;
+}
+
+const calculate = (n1, operator, n2) => {
+  let result = '';
+
+  if (operator === 'add') {
+    result = parseFloat(n1) + parseFloat(n2);
+  } else if (operator === 'subtract') {
+    result = parseFloat(n1) - parseFloat(n2);
+  } else if (operator === 'multiply') {
+    result = parseFloat(n1) * parseFloat(n2);
+  } else if (operator === 'divide') {
+    result = parseFloat(n1) / parseFloat(n2);
+  }
+
+  return result;
+}
+
+if (action === 'calculate') {
+  const firstNum = calculator.dataset.firstValue;
+  const secondNum = displayedNum;
+  const operator = calculator.dataset.operator;
+
+  display.textContent = calculate (firstNum, operator, secondNum)
 }
 
 }
