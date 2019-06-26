@@ -13,7 +13,7 @@ const previousKeyType = calculator.dataset.previousKeyType;
 
 if (!action) {
   if (displayedNum === '0' || previousKeyType === 'operator') {
-    display.textContent = KeyType;
+    display.textContent = keyType;
   } else {
     display.textContent = displayedNum + keyType;
   }
@@ -23,7 +23,9 @@ if (action === 'decimal') {
   display.textContent = displayedNum + '.'
 }
 
-
+if (action === 'add' || action === 'subtract' || action === 'multiply' || action === 'divide') {
+  calculator.dataset.previousKeyType = 'operator';
+}
 
 }
 })
