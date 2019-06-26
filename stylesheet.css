@@ -70,7 +70,8 @@ button:focus {
   border-color:#CE4257;
   font-size:2rem;
   font-color:#720026;
-  padding: 0.4em 0.3em 0 0;
+  letter-spacing: -0.2em;
+  padding: 0.4em 0.4em 0 0;
 }
 
 .keys {
@@ -102,4 +103,16 @@ button:focus {
 
 #equals:focus, #clear:focus {
   background-color: #CE4257;
+}
+
+/* media query mobile */
+
+@media only screen and (max-width: 375px) {
+.calculator {
+  max-width: 18em;
+}
+
+#display {
+  max-width: 8em; 
+}
 }
