@@ -76,12 +76,18 @@ if (action === 'calculate') {
   calculator.dataset.previousKeyType = 'calculate';
 }
 
-//if the clear key is pressed
+//clear key texContent
+let clear = document.querySelector('#clear');
 
-if (action === 'clear') {
-  let clear = document.querySelector('#clear');
-  display.textContent = '';
+if (display.textContent !== '0') {
   clear.textContent = 'CE';
+}
+
+//if clear is pressed
+if (action === 'clear') {
+
+  display.textContent = '';
+  clear.textContent = 'AC';
 
   calculator.dataset.previousKeyType = 'clear';
 }
