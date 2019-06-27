@@ -103,7 +103,7 @@ if (display.textContent !== '0') {
 //if clear is pressed
 if (action === 'clear') {
 
-  display.textContent = '';
+  display.textContent = '0';
   clear.textContent = 'AC';
 
   calculator.dataset.previousKeyType = 'clear';

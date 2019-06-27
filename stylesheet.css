@@ -25,7 +25,7 @@ body {
   border-width: 0.5em;
   border-color:#CE4257;
   background-color:#FF7F51;
-  box-shadow:0 0 40px 0px rgba(0, 0, 0, 0.15);
+  box-shadow:40px 40px 40px 40px rgba(0, 0, 0, 0.15);
   display:flex;
   flex-wrap:wrap;
   justify-content: center;
@@ -45,7 +45,7 @@ button {
   border-color:#CE4257;
   font-family:inherit;
   text-shadow: 0 1px rgba(255,255,255,.4);
-  box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.15);
+
 
 }
 
