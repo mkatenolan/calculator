@@ -39,13 +39,7 @@ if (action === 'decimal') {
   calculator.dataset.previousKeyType = 'decimal';
 }
 
-// if an operator is pressed
 
-if (action === 'add' || action === 'subtract' || action === 'multiply' || action === 'divide') {
-  calculator.dataset.previousKeyType = 'operator';
-  calculator.dataset.firstValue = displayedNum;
-  calculator.dataset.operator = action;
-}
 
 // basic calculation
 
@@ -65,14 +59,37 @@ const calculate = (n1, operator, n2) => {
   return result;
 }
 
+// if an operator is pressed
+
+if (action === 'add' || action === 'subtract' || action === 'multiply' || action === 'divide') {
+  const firstValue = calculator.dataset.firstValue;
+  const operator = calculator.dataset.operator;
+  const secondValue = displayedNum;
+
+  if (firstValue && operator && (previousKeyType !=='operator')) {
+    const calcValue = calculate (firstValue, operator, secondValue)
+    display.textContent = calcValue;
+
+    calculator.dataset.firstValue = calcValue;
+  } else {
+    calculator.dataset.firstValue = displayedNum;
+  }
+
+  calculator.dataset.previousKeyType = 'operator';
+  calculator.dataset.operator = action;
+}
+
 // if equals is pressed
 
 if (action === 'calculate') {
-  const firstNum = calculator.dataset.firstValue;
-  const secondNum = displayedNum;
+  const firstValue = calculator.dataset.firstValue;
+  const secondValue = displayedNum;
   const operator = calculator.dataset.operator;
 
-  display.textContent = calculate (firstNum, operator, secondNum);
+  if(firstValue){
+    display.textContent = calculate (firstValue, operator, secondValue);
+  }
+
   calculator.dataset.previousKeyType = 'calculate';
 }
 
