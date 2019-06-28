@@ -21,7 +21,7 @@ const modValue = calculator.dataset.modValue;
 // change display content depending on key type
 
 if (!action) {
-  if (displayedNum === '0' || previousKeyType === 'operator' || 'calculate') {
+  if (displayedNum === '0' || previousKeyType === 'operator' || previousKeyType ==='calculate') {
     display.textContent = keyType;
   } else {
     display.textContent = displayedNum + keyType;
@@ -119,6 +119,7 @@ if (action === 'clear') {
   }
 
   display.textContent = '0';
+
   calculator.dataset.previousKeyType = 'clear';
 }
 
