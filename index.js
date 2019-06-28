@@ -16,11 +16,12 @@ const action = key.dataset.action;
 const keyType = key.textContent;
 const displayedNum = display.textContent;
 const previousKeyType = calculator.dataset.previousKeyType;
+const modValue = calculator.dataset.modValue;
 
 // change display content depending on key type
 
 if (!action) {
-  if (displayedNum === '0' || previousKeyType === 'operator') {
+  if (displayedNum === '0' || previousKeyType === 'operator' || 'calculate') {
     display.textContent = keyType;
   } else {
     display.textContent = displayedNum + keyType;
@@ -33,7 +34,7 @@ if (!action) {
 if (action === 'decimal') {
   if(!displayedNum.includes('.')) {
   display.textContent = displayedNum + '.';
-} else if (previousKeyType === 'operator') {
+} else if (previousKeyType === 'operator' || 'calculate') {
   display.textContent = '0.'
 }
   calculator.dataset.previousKeyType = 'decimal';
@@ -66,7 +67,7 @@ if (action === 'add' || action === 'subtract' || action === 'multiply' || action
   const operator = calculator.dataset.operator;
   const secondValue = displayedNum;
 
-  if (firstValue && operator && (previousKeyType !=='operator')) {
+  if (firstValue && operator && (previousKeyType !=='operator' && 'calculate')) {
     const calcValue = calculate (firstValue, operator, secondValue)
     display.textContent = calcValue;
 
@@ -87,9 +88,14 @@ if (action === 'calculate') {
   const operator = calculator.dataset.operator;
 
   if(firstValue){
+    if (previousKeyType === 'calculate') {
+      firstValue = displayedNum;
+      secondValue = calculator.dataset.modValue;
+    }
     display.textContent = calculate (firstValue, operator, secondValue);
   }
 
+  calculator.dataset.modValue = secondValue;
   calculator.dataset.previousKeyType = 'calculate';
 }
 
@@ -102,10 +108,17 @@ if (display.textContent !== '0') {
 
 //if clear is pressed
 if (action === 'clear') {
+  if (clear.textContent === 'AC') {
+    calculator.dataset.firstValue = '';
+    calculator.dataset.operator = '';
+    calculator.dataset.secondValue = '';
+    calculator.dataset.modValue = '';
+    calculator.dataset.previousKeyType = '';
+  } else {
+    clear.textContent = 'AC'
+  }
 
   display.textContent = '0';
-  clear.textContent = 'AC';
-
   calculator.dataset.previousKeyType = 'clear';
 }
 
