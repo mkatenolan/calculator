@@ -22,7 +22,6 @@ body {
 .calculator {
   border-radius:8px;
   border-style:solid;
-  border-width: 0.5em;
   border-color:#CE4257;
   background-color:#FF7F51;
   box-shadow:40px 40px 40px 40px rgba(0, 0, 0, 0.15);
@@ -31,9 +30,8 @@ body {
   justify-content: center;
   align-items:center;
   max-width:20em;
-  height:22em;
-  margin-left:auto;
-  margin-right:auto;
+  height:23em;
+
 }
 
 button {
